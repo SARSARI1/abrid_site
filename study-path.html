@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مسار دراستك</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding-bottom: 80px; /* Adjust space before footer */
+        }
+
+        /* Header styles */
+        header {
+            width: 100%;
+            height: 80px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #333;
+            border-radius: 20px;
+            padding-bottom: 10px;
+        }
+
+        header img {
+            height: 40px;
+        }
+
+        header h1 {
+            font-size: 20px;
+            color: white;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            position: absolute; /* Position it at the bottom */
+            bottom: 0;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        footer img {
+            height: 30px;
+            margin-top: 10px;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Study path container */
+        .study-path-container {
+            margin-top: 50px;
+        }
+
+        .study-path-link {
+            color: red;
+            font-size: 18px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* Buttons for Schools */
+        .btn-school {
+            margin: 5px;
+            font-size: 16px;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header {
+                height: auto;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header h1 {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="container d-flex justify-content-between align-items-center p-0">
+                <img src="images/logo.png" alt="Logo">
+                <h1>مسار دراستك</h1>
+            </div>
+        </header>
+
+        <!-- Study Path Section -->
+        <div class="container text-center study-path-container">
+            <h1 class="mb-4">مسار دراستك لتحقيق هذا الهدف</h1>
+
+            <div id="study-path-content">
+                <!-- Dynamic Content will be injected here -->
+            </div>
+
+            <a href="home.html" class="btn btn-success btn-lg mt-4">العودة إلى البداية</a>
+        </div>
+
+    </div>
+
+    <script>
+        // Get the result from session storage
+        const answers = sessionStorage.getItem("answers");
+        const studyPathContent = document.getElementById("study-path-content");
+
+        // Show study path based on the result
+        let studyPath = "";
+
+        switch (answers) {
+            case "1a2a3a":
+                studyPath = `
+                    <h3>إذا كنت ترغب في أن تصبح مهندسًا:</h3>
+                    <ul>
+                        <li>إتمام الدراسة في تخصص الهندسة (مثل الهندسة المدنية أو الهندسة الكهربائية).</li>
+                        <li>الالتحاق ببرنامج الماجستير في الهندسة المتقدمة.</li>
+                        <li>إجراء تدريبات عملية في مجالات متخصصة مثل البرمجة أو البناء.</li>
+                        <li>الحصول على شهادة في إدارة المشاريع أو تخصصات ذات علاقة.</li>
+                    </ul>
+                    <h4>مدارس يمكنك الالتحاق بها:</h4>
+                    <a href="https://www.ensa.ac.ma" class="btn btn-warning btn-school" target="_blank">المدارس الوطنية للعلوم التطبيقية (ENSA)</a>
+                    <a href="https://www.ensam.ac.ma" class="btn btn-warning btn-school" target="_blank">المدارس الوطنية العليا للفنون والمهن (ENSAM)</a>
+                    <a href="https://www.fst.ac.ma" class="btn btn-warning btn-school" target="_blank">كليات العلوم والتقنيات (FST)</a>
+                    <a href="https://www.ensias.ma" class="btn btn-warning btn-school" target="_blank">المدارس الوطنية العليا للمعلوماتية وتحليل النظم (ENSIAS)</a>
+                    <a href="https://www.ista.ac.ma" class="btn btn-warning btn-school" target="_blank">المعاهد العليا للتكنولوجيا التطبيقية (ISTA)</a>
+                `;
+                break;
+            case "1a2b3a":
+                studyPath = `
+                    <h3>إذا كنت ترغب في أن تصبح عالمًا:</h3>
+                    <ul>
+                        <li>دراسة العلوم مثل الفيزياء أو الكيمياء أو البيولوجيا.</li>
+                        <li>الانخراط في أبحاث علمية أو المشاركة في مؤتمرات علمية دولية.</li>
+                        <li>الحصول على شهادة دكتوراه في المجال المختار.</li>
+                        <li>العمل في مختبرات بحثية أو جامعات لتوسيع المعرفة والابتكار.</li>
+                    </ul>
+                    <h4>مدارس يمكنك الالتحاق بها:</h4>
+                    <a href="https://www.universitywebsite.com" class="btn btn-warning btn-school" target="_blank">أكاديمية البحث العلمي</a>
+                `;
+                break;
+            case "1b2b3a":
+                studyPath = `
+                    <h3>إذا كنت ترغب في أن تصبح طبيبًا:</h3>
+                    <ul>
+                        <li>دراسة الطب في جامعة معترف بها.</li>
+                        <li>إجراء تدريبات طبية في مستشفيات مشهورة.</li>
+                        <li>التحضير لاختبارات الترخيص في الطب.</li>
+                        <li>الحصول على تدريب متخصص في مجال معين مثل الجراحة أو طب الأطفال.</li>
+                    </ul>
+                    <h4>مدارس يمكنك الالتحاق بها:</h4>
+                    <a href="https://www.fmp.ac.ma" class="btn btn-warning btn-school" target="_blank">كليات الطب والصيدلة (FMP)</a>
+                    <a href="https://www.isa.ac.ma" class="btn btn-warning btn-school" target="_blank">المعاهد العليا للتمريض والمهن الطبية التقنية</a>
+                `;
+                break;
+            case "1b2b3b":
+                studyPath = `
+                    <h3>إذا كنت ترغب في أن تصبح معلمًا:</h3>
+                    <ul>
+                        <li>دراسة التعليم في الجامعات التربوية أو المدارس.</li>
+                        <li>التدريب العملي في المدارس لتحسين مهارات التدريس.</li>
+                        <li>التقدم للحصول على شهادة معلم معترف بها من الوزارة.</li>
+                        <li>الاستمرار في تطوير مهارات التدريس عبر الدورات التعليمية المستمرة.</li>
+                    </ul>
+                    <h4>مدارس يمكنك الالتحاق بها:</h4>
+                    <a href="https://www.ens.ac.ma" class="btn btn-warning btn-school" target="_blank">المدارس العليا للأساتذة (ENS)</a>
+                `;
+                break;
+            default:
+                studyPath = "<p>لم يتم تحديد نتيجة واضحة. حاول مرة أخرى.</p>";
+        }
+
+        // Inject the study path content into the div
+        studyPathContent.innerHTML = studyPath;
+    </script>
+</body>
+</html>

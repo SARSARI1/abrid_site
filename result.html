@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width: device-width, initial-scale=1.0">
+    <title>النتيجة</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding-bottom: 80px; /* Adjust space before footer */
+        }
+
+        /* Header styles */
+        header {
+            width: 100%;
+            height: 80px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #333;
+            border-radius: 20px;
+            padding-bottom: 10px;
+        }
+
+        header img {
+            height: 40px;
+        }
+
+        header h1 {
+            font-size: 20px;
+            color: white;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            position: absolute; /* Position it at the bottom */
+            bottom: 0;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        footer img {
+            height: 30px;
+            margin-top: 10px;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Result container */
+        .result-container {
+            margin-top: 50px;
+        }
+
+        .result-btn {
+            margin-top: 20px;
+        }
+
+        /* Red link styles */
+        .study-path-link {
+            color: red;
+            font-size: 18px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header {
+                height: auto;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header h1 {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="container d-flex justify-content-between align-items-center p-0">
+                <img src="images/logo.png" alt="Logo">
+                <h1>النتيجة</h1>
+            </div>
+        </header>
+
+        <!-- Result Section -->
+        <div class="container text-center result-container">
+            <h1 class="mb-4">النتيجة</h1>
+            <p id="result" class="lead"></p>
+
+            <!-- New Link to Study Path -->
+            <a href="study-path.html" class="btn btn-warning btn-lg mt-4">رابط مسار دراستك لتحقيق هذا الهدف</a>
+
+            <a href="home.html" class="btn btn-success btn-lg mt-4">العودة إلى البداية</a>
+        </div>
+
+    </div>
+
+    <script>
+        // Get answers from session storage
+        const answers = sessionStorage.getItem("answers");
+        console.log("Answers received:", answers); // Debugging
+
+        let resultText;
+
+        // Match answers to a result
+        switch (answers) {
+            case "1a2a3a":
+                resultText = "مهندس";
+                break;
+            case "1a2b3a":
+                resultText = "عالم";
+                break;
+            case "1b2b3a":
+                resultText = "طبيب";
+                break;
+            case "1b2b3b":
+                resultText = "معلم";
+                break;
+            default:
+                resultText = "لم يتم تحديد نتيجة واضحة. حاول مرة أخرى.";
+        }
+
+        document.getElementById("result").textContent = `مجالك المناسب هو: ${resultText}`;
+    </script>
+</body>
+</html>

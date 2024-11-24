@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مسار دراستك</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fa;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-grow: 1;
+            padding-bottom: 80px;
+        }
+
+        header {
+            width: 100%;
+            height: 80px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #343a40;
+            border-radius: 20px;
+            color: white;
+        }
+
+        header img {
+            height: 40px;
+        }
+
+        header h1 {
+            font-size: 15px;
+        }
+
+        footer {
+            background-color: #343a40;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        footer img {
+            height: 30px;
+            margin-top: 10px;
+            filter: brightness(0) invert(1);
+        }
+
+        .btn-school {
+            font-size: 16px;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-school:hover {
+            background-color: #218838;
+        }
+
+        .intro-container {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .intro-container h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .intro-container p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .links-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .links-container a {
+            font-size: 18px;
+            text-decoration: none;
+            color: white;
+            background-color: #28a745;
+            padding: 10px 20px;
+            border-radius: 5px;
+            width: 100%; /* Make buttons full width on mobile */
+            text-align: center;
+        }
+
+        .links-container a:hover {
+            background-color: #218838;
+        }
+
+        .row {
+            width: 100%;
+        }
+
+        .left-column {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .logo-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            /* Stack the logo and text on mobile */
+            .left-column, .right-column {
+                flex: 1;
+                margin-bottom: 20px;
+            }
+
+            .intro-container h2 {
+                font-size: 20px;
+            }
+
+            .intro-container p {
+                font-size: 16px;
+            }
+
+            .links-container a {
+                font-size: 16px;
+                padding: 8px 16px;
+                width: 100%; /* Ensure buttons take full width on small screens */
+            }
+
+            /* Ensure footer doesn't overlap content */
+            footer {
+                position: relative;
+                margin-top: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="container d-flex justify-content-between align-items-center p-0">
+                <img src="images/logo.png" alt="Logo">
+                <h1>مسار دراستك</h1>
+            </div>
+        </header>
+
+        <!-- Main content section with two columns -->
+        <div class="row mt-5">
+            <!-- Left column for the large logo -->
+            <div class="col-lg-6 left-column">
+                <img src="images/logo.png" alt="Logo" class="logo-image">
+            </div>
+
+            <!-- Right column for text and buttons -->
+            <div class="col-lg-6 right-column">
+                <div class="intro-container">
+                    <h2>مرحبًا بك في موقع ابريد توجيه!</h2>
+                    <p>موقعنا يساعدك في تحديد المسار الدراسي الأمثل لك بناءً على اهتماماتك. اختر من بين الخيارات التالية لتبدأ:</p>
+
+                    <div class="links-container">
+                        <a href="tree.html" class="btn-school btn-lg mt-4">شجرة التوجيه الدراسي</a>
+                        <a href="test.html" class="btn-school btn-lg mt-4">اختبار التوجيه الدراسي</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2024</p>
+        <img src="images/footer-logo.png" alt="Footer Logo">
+    </footer>
+
+</body>
+</html>

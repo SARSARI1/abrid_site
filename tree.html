@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مسار دراستك</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fa;
+            overflow: auto;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+        }
+
+        footer {
+            background-color: #343a40;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        footer img {
+            height: 30px;
+            margin-top: 10px;
+            filter: brightness(0) invert(1);
+        }
+
+        .tree {
+            --spacing: 1.5rem;
+            --radius: 10px;
+            font-size: 18px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .tree li {
+            display: block;
+            position: relative;
+            padding-right: calc(2 * var(--spacing) - var(--radius) - 2px); /* Align items to the right */
+        }
+
+        .tree ul {
+            margin-right: calc(var(--radius) - var(--spacing));
+            padding-right: 0;
+        }
+
+        .tree ul li {
+            border-right: 2px solid #ddd; /* Right border for RTL */
+        }
+
+        .tree ul li:last-child {
+            border-color: transparent;
+        }
+
+        .tree ul li::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: calc(var(--spacing) / -2);
+            right: -2px; /* Align to the right side */
+            width: calc(var(--spacing) + 2px);
+            height: calc(var(--spacing) + 1px);
+            border: solid #ddd;
+            border-width: 0 0 2px 2px;
+        }
+
+        .tree summary {
+            display: block;
+            cursor: pointer;
+            font-weight: bold;
+            color: #8a6e08;
+            font-size: 20px;
+            padding: 5px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+
+        .tree summary::marker,
+        .tree summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .tree summary:focus {
+            outline: none;
+        }
+
+        .tree summary:focus-visible {
+            outline: 1px dotted #000;
+        }
+
+        .tree li::after,
+        .tree summary::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: calc(var(--spacing) / 2 - var(--radius));
+            right: calc(var(--spacing) - var(--radius) - 1px); /* Align circle to the right */
+            width: calc(2 * var(--radius));
+            height: calc(2 * var(--radius));
+            border-radius: 50%;
+            background: #ddd;
+        }
+
+        .tree summary::before {
+            z-index: 1;
+            background: #696 url('expand-collapse.svg') 0 0;
+        }
+
+        .tree details[open] > summary::before {
+            background-position: calc(-2 * var(--radius)) 0;
+        }
+
+        .btn-school {
+            font-size: 16px;
+            padding: 15px 30px;
+            margin: 20px 0;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-school:hover {
+            background-color: #218838;
+        }
+
+        .intro-text {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .logo-left {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-left img {
+            height: 60px;
+        }
+
+        .content-area {
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .study-path-container {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Highlight root nodes */
+        .tree > li > summary {
+            background-color: #ffefc5; /* Light yellow for root nodes */
+            font-weight: bold;
+            color: #333;
+        }
+
+        .tree summary:hover {
+            background-color: #d1e7dd; /* Light green hover effect */
+        }
+
+        /* Enhance details items */
+        .tree details > summary {
+            font-size: 18px;
+            font-weight: normal;
+        }
+
+        .tree details[open] > summary {
+            background-color: #cce5ff; /* Light blue when open */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo-left">
+                <img src="images/logo.png" alt="Logo">
+                <h1>مسار دراستك</h1>
+            </div>
+        </header>
+
+        <div class="content-area">
+            <div class="intro-text">
+                <p>مرحبًا بكم في شجرة التوجيه الدراسي، هنا يمكنك استكشاف مختلف التخصصات الأكاديمية والفرص المتاحة لك.</p>
+                <p>استمتع بتصفح الخيارات المتاحة أمامك وابحث عن المجال الذي يناسب اهتماماتك وطموحاتك المستقبلية.</p>
+            </div>
+
+            <div class="study-path-container">
+                <h2 class="mb-4">شجرة التوجيه الدراسي</h2>
+                
+                <ul class="tree">
+                    <li>
+                        <details open>
+                            <summary>العلوم</summary>
+                            <ul>
+                                <li>
+                                    <details>
+                                        <summary>الطب</summary>
+                                        <ul>
+                                            <li>يمكنك أن تصبح طبيبًا</li>
+                                            <li>يمكنك أن تصبح جراحًا</li>
+                                        </ul>
+                                    </details>
+                                </li>
+                                <li>
+                                    <details>
+                                        <summary>البحث العلمي</summary>
+                                        <ul>
+                                            <li>يمكنك أن تصبح باحثًا علميًا</li>
+                                            <li>يمكنك أن تصبح أستاذًا جامعيًا</li>
+                                        </ul>
+                                    </details>
+                                </li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>الرياضيات</summary>
+                            <ul>
+                                <li>
+                                    <details>
+                                        <summary>الهندسة</summary>
+                                        <ul>
+                                            <li>يمكنك أن تصبح مهندسًا</li>
+                                            <li>يمكنك أن تصبح مهندسًا معماريًا</li>
+                                        </ul>
+                                    </details>
+                                </li>
+                                <li>
+                                    <details>
+                                        <summary>العلوم الحاسوبية</summary>
+                                        <ul>
+                                            <li>يمكنك أن تصبح عالم بيانات</li>
+                                            <li>يمكنك أن تصبح مطورًا برمجيًا</li>
+                                        </ul>
+                                    </details>
+                                </li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>الفيزياء</summary>
+                            <ul>
+                                <li>
+                                    <details>
+                                        <summary>الفيزياء النظرية</summary>
+                                        <ul>
+                                            <li>يمكنك أن تصبح فيزيائيًا</li>
+                                            <li>يمكنك أن تصبح عالم فلك</li>
+                                        </ul>
+                                    </details>
+                                </li>
+                            </ul>
+                        </details>
+                    </li>
+                </ul>
+
+                <a href="home.html" class="btn btn-success btn-lg mt-4">العودة إلى البداية</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2024</p>
+        <img src="images/footer-logo.png" alt="Footer Logo">
+    </footer>
+
+</body>
+</html>
