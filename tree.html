@@ -3,22 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مسار دراستك</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>شجرة التوجيه ومسار دراستك</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400&display=swap" rel="stylesheet">
     <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f7fa;
-            overflow: auto;
+        body {
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            background-color: #d8e4d8; /* Light green background */
+            color: #333;
         }
 
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 30px;
+        .rubik-title {
+            font-family: 'Rubik', sans-serif;
+            font-size: 2.5rem; /* Larger title size */
+            font-weight: bold;
+            color: #006400; /* Dark green */
+            text-align: center;
+            margin-bottom: 30px;
+            margin-top: 30px;
+        }
+
+        .section-container {
+            margin: 30px auto;
+            text-align: center;
+            background-color: #d6f5d6; /* Soft green background */
+            border-radius: 25px; /* Rounded corners */
+            padding: 20px;
+            box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section-container:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .branches-container {
+            border: 2px solid #8B4513; /* Light brown solid contour */
+            border-radius: 25px; /* Rounded corners */
+            background-color: #FFE4C4; /* Light brown background to symbolize branches */
+        }
+
+        .leaves-container {
+            border: 3px solid #006400; /* Dark green solid contour */
+            border-radius: 25px; /* Rounded corners */
+            background-color: #d6f5d6; /* Green background */
+        }
+
+        .section-title {
+            font-family: 'Rubik', sans-serif;
+            color: #007f00; /* Dark green title */
+            font-size: 1.8rem; /* Bigger title size */
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .section-text {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+        }
+
+        .intro-text {
+            text-align: center;
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .study-path-container {
+            text-align: center;
+            background-color: #d6f5d6; /* Matching the first page */
+            border-radius: 25px;
+            padding: 20px;
+            margin: 30px auto;
+            box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .tree {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .tree li {
+            margin: 10px 0;
+            padding: 10px 15px;
+            background-color: #ffefc5; /* Light yellow for clarity */
+            border-radius: 15px;
+            font-size: 1.25rem;
+        }
+
+        /* New styles for image transparency */
+        .tree img {
+            opacity: 0.5; /* Set initial transparency */
+            background-color: transparent; /* No background */
+            transition: opacity 0.5s ease;
+        }
+
+        .tree img:hover {
+            opacity: 1; /* Full visibility on hover */
         }
 
         footer {
@@ -37,119 +120,20 @@
             filter: brightness(0) invert(1);
         }
 
-        .tree {
-            --spacing: 1.5rem;
-            --radius: 10px;
-            font-size: 18px;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .tree li {
-            display: block;
-            position: relative;
-            padding-right: calc(2 * var(--spacing) - var(--radius) - 2px); /* Align items to the right */
-        }
-
-        .tree ul {
-            margin-right: calc(var(--radius) - var(--spacing));
-            padding-right: 0;
-        }
-
-        .tree ul li {
-            border-right: 2px solid #ddd; /* Right border for RTL */
-        }
-
-        .tree ul li:last-child {
-            border-color: transparent;
-        }
-
-        .tree ul li::before {
-            content: '';
-            display: block;
-            position: absolute;
-            top: calc(var(--spacing) / -2);
-            right: -2px; /* Align to the right side */
-            width: calc(var(--spacing) + 2px);
-            height: calc(var(--spacing) + 1px);
-            border: solid #ddd;
-            border-width: 0 0 2px 2px;
-        }
-
-        .tree summary {
-            display: block;
-            cursor: pointer;
-            font-weight: bold;
-            color: #8a6e08;
-            font-size: 20px;
-            padding: 5px;
-            background-color: #f8f9fa;
-            border-radius: 5px;
-            margin: 5px 0;
-        }
-
-        .tree summary::marker,
-        .tree summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .tree summary:focus {
-            outline: none;
-        }
-
-        .tree summary:focus-visible {
-            outline: 1px dotted #000;
-        }
-
-        .tree li::after,
-        .tree summary::before {
-            content: '';
-            display: block;
-            position: absolute;
-            top: calc(var(--spacing) / 2 - var(--radius));
-            right: calc(var(--spacing) - var(--radius) - 1px); /* Align circle to the right */
-            width: calc(2 * var(--radius));
-            height: calc(2 * var(--radius));
-            border-radius: 50%;
-            background: #ddd;
-        }
-
-        .tree summary::before {
-            z-index: 1;
-            background: #696 url('expand-collapse.svg') 0 0;
-        }
-
-        .tree details[open] > summary::before {
-            background-position: calc(-2 * var(--radius)) 0;
-        }
-
-        .btn-school {
-            font-size: 16px;
-            padding: 15px 30px;
-            margin: 20px 0;
-            background-color: #28a745;
-            color: white;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .btn-school:hover {
-            background-color: #218838;
-        }
-
-        .intro-text {
-            font-size: 20px;
-            color: #333;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
         .logo-left {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end; /* Align logo to the right */
             align-items: center;
+            background-color: white; /* White background for logo container */
+            padding: 10px;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .logo-left:hover {
+            transform: scale(1.05); /* Slight scaling effect */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
         }
 
         .logo-left img {
@@ -168,125 +152,102 @@
             text-align: center;
         }
 
-        /* Highlight root nodes */
-        .tree > li > summary {
-            background-color: #ffefc5; /* Light yellow for root nodes */
-            font-weight: bold;
-            color: #333;
+        .btn-school {
+            font-size: 16px;
+            padding: 15px 30px;
+            margin: 20px 0;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
 
-        .tree summary:hover {
-            background-color: #d1e7dd; /* Light green hover effect */
+        .btn-school:hover {
+            background-color: #218838;
+        }
+        /* Hover effect for images */
+        .tree img {
+            transition: transform 0.3s ease, filter 0.3s ease; /* Smooth transition */
         }
 
-        /* Enhance details items */
-        .tree details > summary {
-            font-size: 18px;
-            font-weight: normal;
+        .tree img:hover {
+            transform: scale(1.1); /* Slightly enlarge the image */
+            filter: brightness(1.2); /* Make the image slightly brighter on hover */
         }
 
-        .tree details[open] > summary {
-            background-color: #cce5ff; /* Light blue when open */
-        }
+
     </style>
 </head>
 <body>
-
-    <div class="container">
-        <header>
-            <div class="logo-left">
-                <img src="images/logo.png" alt="Logo">
-                <h1>مسار دراستك</h1>
+    <!-- Navbar with Logo -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #8ebb8e;">
+        <a class="navbar-brand" href="page_home.html">
+            <div class="logo-header">
+                <img id="logo" src="images/logo_one-removebg-preview.png" alt="Logo" style="height: 70px;">
             </div>
-        </header>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="page_home.html">الرئيسية </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="test.html">اختبار توجيه</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tree.html">شجرة</a>
+                </li>
+               
+            </ul>
+        </div>
+    </nav>
 
-        <div class="content-area">
-            <div class="intro-text">
-                <p>مرحبًا بكم في شجرة التوجيه الدراسي، هنا يمكنك استكشاف مختلف التخصصات الأكاديمية والفرص المتاحة لك.</p>
-                <p>استمتع بتصفح الخيارات المتاحة أمامك وابحث عن المجال الذي يناسب اهتماماتك وطموحاتك المستقبلية.</p>
+    <div class="rubik-title">شجرة التوجيه ومسار دراستك</div>
+
+    <!-- First Section: Branches & Leaves with Image -->
+    <div class="container my-5">
+        <div class="row align-items-center">
+            <div class="col-md-3 text-center">
+                <div class="section-container branches-container">
+                    <h3 class="section-title">الأغصان</h3>
+                    <p class="section-text">تمثل الأغصان مجالات التعلم مثل الرياضيات، البرمجة، العلوم، والتدريس</p>
+                </div>
             </div>
-
-            <div class="study-path-container">
-                <h2 class="mb-4">شجرة التوجيه الدراسي</h2>
-                
-                <ul class="tree">
-                    <li>
-                        <details open>
-                            <summary>العلوم</summary>
-                            <ul>
-                                <li>
-                                    <details>
-                                        <summary>الطب</summary>
-                                        <ul>
-                                            <li>يمكنك أن تصبح طبيبًا</li>
-                                            <li>يمكنك أن تصبح جراحًا</li>
-                                        </ul>
-                                    </details>
-                                </li>
-                                <li>
-                                    <details>
-                                        <summary>البحث العلمي</summary>
-                                        <ul>
-                                            <li>يمكنك أن تصبح باحثًا علميًا</li>
-                                            <li>يمكنك أن تصبح أستاذًا جامعيًا</li>
-                                        </ul>
-                                    </details>
-                                </li>
-                            </ul>
-                        </details>
-                    </li>
-                    <li>
-                        <details>
-                            <summary>الرياضيات</summary>
-                            <ul>
-                                <li>
-                                    <details>
-                                        <summary>الهندسة</summary>
-                                        <ul>
-                                            <li>يمكنك أن تصبح مهندسًا</li>
-                                            <li>يمكنك أن تصبح مهندسًا معماريًا</li>
-                                        </ul>
-                                    </details>
-                                </li>
-                                <li>
-                                    <details>
-                                        <summary>العلوم الحاسوبية</summary>
-                                        <ul>
-                                            <li>يمكنك أن تصبح عالم بيانات</li>
-                                            <li>يمكنك أن تصبح مطورًا برمجيًا</li>
-                                        </ul>
-                                    </details>
-                                </li>
-                            </ul>
-                        </details>
-                    </li>
-                    <li>
-                        <details>
-                            <summary>الفيزياء</summary>
-                            <ul>
-                                <li>
-                                    <details>
-                                        <summary>الفيزياء النظرية</summary>
-                                        <ul>
-                                            <li>يمكنك أن تصبح فيزيائيًا</li>
-                                            <li>يمكنك أن تصبح عالم فلك</li>
-                                        </ul>
-                                    </details>
-                                </li>
-                            </ul>
-                        </details>
-                    </li>
-                </ul>
-
-                <a href="page_home.html" class="btn btn-success btn-lg mt-4">العودة إلى البداية</a>
+            <div class="col-md-6 text-center">
+                <img src="images/tree-removebg-preview.png" alt="Tree" class="img-fluid tree">
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="section-container leaves-container">
+                    <h3 class="section-title">الأوراق</h3>
+                    <p class="section-text">تمثل الأوراق الوظائف مثل المهندس، الطبيب، المعلم، والمبرمج</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <footer>
-        <p>جميع الحقوق محفوظة &copy; 2024</p>
-        <img src="images/footer-logo.png" alt="Footer Logo">
-    </footer>
+    <!-- Second Section: Study Path -->
+    <div class="study-path-container">
+        <h2 class="rubik-title" style="font-size: 2rem;">مسار دراستك</h2>
+        <div class="intro-text">
+            <p>مرحبًا بكم في شجرة التوجيه الدراسي. هنا يمكنك استكشاف مختلف التخصصات الأكاديمية والفرص المتاحة لك.</p>
+            <p>استمتع بتصفح الخيارات المتاحة وابحث عن المجال الذي يناسب طموحاتك المستقبلية.</p>
+        </div>
+        <ul class="tree">
+            <li>الجذر: أساسيات التعليم</li>
+            <li>الأغصان: مجالات التخصص</li>
+            <li>الأوراق: الوظائف المستقبلية</li>
+        </ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+
 
 </body>
+
 </html>

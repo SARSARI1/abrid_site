@@ -39,7 +39,9 @@
             font-size: 20px;
             color: white;
         }
-
+li,ul{
+    list-style: none;
+}
         /* Footer styles */
         footer {
             background-color: #333;
@@ -94,14 +96,37 @@
     </style>
 </head>
 <body class="bg-light">
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <div class="container d-flex justify-content-between align-items-center p-0">
-                <img src="images/logo.png" alt="Logo">
-                <h1>مسار دراستك</h1>
+    
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #8ebb8e;">
+        <a class="navbar-brand" href="page_home.html">
+            <div class="logo-header">
+                <img id="logo" src="images/logo_one-removebg-preview.png" alt="Logo" style="height: 70px;">
             </div>
-        </header>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="page_home.html">الرئيسية </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="test.html">اختبار توجيه</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tree.html">شجرة</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="result.html">النتيجة</a>
+                </li>
+                
+               
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+       
 
         <!-- Study Path Section -->
         <div class="container text-center study-path-container">
@@ -126,62 +151,73 @@
 
         switch (answers) {
             case "1a2a3a":
-                studyPath = `
-                    <h3>إذا كنت ترغب في أن تصبح مهندسًا:</h3>
-                    <ul>
-                        <li>إتمام الدراسة في تخصص الهندسة (مثل الهندسة المدنية أو الهندسة الكهربائية).</li>
-                        <li>الالتحاق ببرنامج الماجستير في الهندسة المتقدمة.</li>
-                        <li>إجراء تدريبات عملية في مجالات متخصصة مثل البرمجة أو البناء.</li>
-                        <li>الحصول على شهادة في إدارة المشاريع أو تخصصات ذات علاقة.</li>
-                    </ul>
-                    <h4>مدارس يمكنك الالتحاق بها:</h4>
-                    <a href="https://www.ensa.ac.ma" class="btn btn-warning btn-school" target="_blank">المدارس الوطنية للعلوم التطبيقية (ENSA)</a>
-                    <a href="https://www.ensam.ac.ma" class="btn btn-warning btn-school" target="_blank">المدارس الوطنية العليا للفنون والمهن (ENSAM)</a>
-                    <a href="https://www.fst.ac.ma" class="btn btn-warning btn-school" target="_blank">كليات العلوم والتقنيات (FST)</a>
-                    <a href="https://www.ensias.ma" class="btn btn-warning btn-school" target="_blank">المدارس الوطنية العليا للمعلوماتية وتحليل النظم (ENSIAS)</a>
-                    <a href="https://www.ista.ac.ma" class="btn btn-warning btn-school" target="_blank">المعاهد العليا للتكنولوجيا التطبيقية (ISTA)</a>
-                `;
-                break;
-            case "1a2b3a":
-                studyPath = `
-                    <h3>إذا كنت ترغب في أن تصبح عالمًا:</h3>
-                    <ul>
-                        <li>دراسة العلوم مثل الفيزياء أو الكيمياء أو البيولوجيا.</li>
-                        <li>الانخراط في أبحاث علمية أو المشاركة في مؤتمرات علمية دولية.</li>
-                        <li>الحصول على شهادة دكتوراه في المجال المختار.</li>
-                        <li>العمل في مختبرات بحثية أو جامعات لتوسيع المعرفة والابتكار.</li>
-                    </ul>
-                    <h4>مدارس يمكنك الالتحاق بها:</h4>
-                    <a href="https://www.universitywebsite.com" class="btn btn-warning btn-school" target="_blank">أكاديمية البحث العلمي</a>
-                `;
-                break;
-            case "1b2b3a":
-                studyPath = `
-                    <h3>إذا كنت ترغب في أن تصبح طبيبًا:</h3>
-                    <ul>
-                        <li>دراسة الطب في جامعة معترف بها.</li>
-                        <li>إجراء تدريبات طبية في مستشفيات مشهورة.</li>
-                        <li>التحضير لاختبارات الترخيص في الطب.</li>
-                        <li>الحصول على تدريب متخصص في مجال معين مثل الجراحة أو طب الأطفال.</li>
-                    </ul>
-                    <h4>مدارس يمكنك الالتحاق بها:</h4>
-                    <a href="https://www.fmp.ac.ma" class="btn btn-warning btn-school" target="_blank">كليات الطب والصيدلة (FMP)</a>
-                    <a href="https://www.isa.ac.ma" class="btn btn-warning btn-school" target="_blank">المعاهد العليا للتمريض والمهن الطبية التقنية</a>
-                `;
-                break;
-            case "1b2b3b":
-                studyPath = `
-                    <h3>إذا كنت ترغب في أن تصبح معلمًا:</h3>
-                    <ul>
-                        <li>دراسة التعليم في الجامعات التربوية أو المدارس.</li>
-                        <li>التدريب العملي في المدارس لتحسين مهارات التدريس.</li>
-                        <li>التقدم للحصول على شهادة معلم معترف بها من الوزارة.</li>
-                        <li>الاستمرار في تطوير مهارات التدريس عبر الدورات التعليمية المستمرة.</li>
-                    </ul>
-                    <h4>مدارس يمكنك الالتحاق بها:</h4>
-                    <a href="https://www.ens.ac.ma" class="btn btn-warning btn-school" target="_blank">المدارس العليا للأساتذة (ENS)</a>
-                `;
-                break;
+        studyPath = `
+            <h3 class="mb-4">إذا كنت ترغب في أن تصبح مهندسًا:</h3>
+            <ul class="list-group mb-4">
+                <li class="list-group-item">إتمام الدراسة في تخصص الهندسة (مثل الهندسة المدنية أو الهندسة الكهربائية).</li>
+                <li class="list-group-item">الالتحاق ببرنامج الماجستير في الهندسة المتقدمة.</li>
+                <li class="list-group-item">إجراء تدريبات عملية في مجالات متخصصة مثل البرمجة أو البناء.</li>
+                <li class="list-group-item">الحصول على شهادة في إدارة المشاريع أو تخصصات ذات علاقة.</li>
+            </ul>
+            <h4 class="mb-3">مدارس يمكنك الالتحاق بها:</h4>
+            <div class="btn-group-vertical">
+                <a href="https://www.ensa.ac.ma" class="btn btn-warning mb-2" target="_blank">المدارس الوطنية للعلوم التطبيقية (ENSA)</a>
+                <a href="https://www.ensam.ac.ma" class="btn btn-warning mb-2" target="_blank">المدارس الوطنية العليا للفنون والمهن (ENSAM)</a>
+                <a href="https://www.fst.ac.ma" class="btn btn-warning mb-2" target="_blank">كليات العلوم والتقنيات (FST)</a>
+                <a href="https://www.ensias.ma" class="btn btn-warning mb-2" target="_blank">المدارس الوطنية العليا للمعلوماتية وتحليل النظم (ENSIAS)</a>
+                <a href="https://www.ista.ac.ma" class="btn btn-warning mb-2" target="_blank">المعاهد العليا للتكنولوجيا التطبيقية (ISTA)</a>
+            </div>
+        `;
+        break;
+
+    case "1a2b3a":
+        studyPath = `
+            <h3 class="mb-4">إذا كنت ترغب في أن تصبح عالمًا:</h3>
+            <ul class="list-group mb-4">
+                <li class="list-group-item">دراسة العلوم مثل الفيزياء أو الكيمياء أو البيولوجيا.</li>
+                <li class="list-group-item">الانخراط في أبحاث علمية أو المشاركة في مؤتمرات علمية دولية.</li>
+                <li class="list-group-item">الحصول على شهادة دكتوراه في المجال المختار.</li>
+                <li class="list-group-item">العمل في مختبرات بحثية أو جامعات لتوسيع المعرفة والابتكار.</li>
+            </ul>
+            <h4 class="mb-3">مدارس يمكنك الالتحاق بها:</h4>
+            <div class="btn-group-vertical">
+                <a href="https://www.universitywebsite.com" class="btn btn-warning" target="_blank">أكاديمية البحث العلمي</a>
+            </div>
+        `;
+        break;
+
+    case "1b2b3a":
+        studyPath = `
+            <h3 class="mb-4">إذا كنت ترغب في أن تصبح طبيبًا:</h3>
+            <ul class="list-group mb-4">
+                <li class="list-group-item">دراسة الطب في جامعة معترف بها.</li>
+                <li class="list-group-item">إجراء تدريبات طبية في مستشفيات مشهورة.</li>
+                <li class="list-group-item">التحضير لاختبارات الترخيص في الطب.</li>
+                <li class="list-group-item">الحصول على تدريب متخصص في مجال معين مثل الجراحة أو طب الأطفال.</li>
+            </ul>
+            <h4 class="mb-3">مدارس يمكنك الالتحاق بها:</h4>
+            <div class="btn-group-vertical">
+                <a href="https://www.fmp.ac.ma" class="btn btn-warning mb-2" target="_blank">كليات الطب والصيدلة (FMP)</a>
+                <a href="https://www.isa.ac.ma" class="btn btn-warning mb-2" target="_blank">المعاهد العليا للتمريض والمهن الطبية التقنية</a>
+            </div>
+        `;
+        break;
+
+    case "1b2b3b":
+        studyPath = `
+            <h3 class="mb-4">إذا كنت ترغب في أن تصبح معلمًا:</h3>
+            <ul class="list-group mb-4">
+                <li class="list-group-item">دراسة التعليم في الجامعات التربوية أو المدارس.</li>
+                <li class="list-group-item">التدريب العملي في المدارس لتحسين مهارات التدريس.</li>
+                <li class="list-group-item">التقدم للحصول على شهادة معلم معترف بها من الوزارة.</li>
+                <li class="list-group-item">الاستمرار في تطوير مهارات التدريس عبر الدورات التعليمية المستمرة.</li>
+            </ul>
+            <h4 class="mb-3">مدارس يمكنك الالتحاق بها:</h4>
+            <div class="btn-group-vertical">
+                <a href="https://www.ens.ac.ma" class="btn btn-warning" target="_blank">المدارس العليا للأساتذة (ENS)</a>
+            </div>
+        `;
+        break;
             default:
                 studyPath = "<p>لم يتم تحديد نتيجة واضحة. حاول مرة أخرى.</p>";
         }

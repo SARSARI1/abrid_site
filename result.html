@@ -9,6 +9,7 @@
         body, html {
             height: 100%;
             margin: 0;
+            background-color: #d6f5d6;
         }
 
         .container {
@@ -91,14 +92,38 @@
     </style>
 </head>
 <body class="bg-light">
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <div class="container d-flex justify-content-between align-items-center p-0">
-                <img src="images/logo.png" alt="Logo">
-                <h1>النتيجة</h1>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #8ebb8e;">
+        <a class="navbar-brand" href="page_home.html">
+            <div class="logo-header">
+                <img id="logo" src="images/logo_one-removebg-preview.png" alt="Logo" style="height: 70px;">
             </div>
-        </header>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="page_home.html">الرئيسية </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="test.html">اختبار توجيه</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tree.html">شجرة</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="result.html">النتيجة</a>
+                </li>
+                
+               
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+       
 
         <!-- Result Section -->
         <div class="container text-center result-container">

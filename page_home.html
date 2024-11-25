@@ -5,52 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مسار دراستك</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400&display=swap" rel="stylesheet">
     <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f7fa;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex-grow: 1;
-            padding-bottom: 80px;
+        body {
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            background-color: #d8e4d8; /* Light green background */
+            color: #333;
         }
 
         header {
-            width: 100%;
-            height: 80px;
+            background-color: #8ebb8e; /* Matching the navbar color from the first page */
             padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #343a40;
             border-radius: 20px;
             color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         header img {
             height: 40px;
         }
 
-        header h1 {
-            font-size: 15px;
+        .rubik-title {
+            font-family: 'Rubik', sans-serif;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #006400; /* Dark green */
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .btn-school {
+            background-color: #ff7f00; /* Orange color */
+            color: white;
+            border-radius: 5px;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            width: 100%;
+            text-decoration: none; /* Removing the underline */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-school:hover {
+            background-color: #e06b00; /* Darker orange */
+            transform: scale(1.05); /* Hover effect */
         }
 
         footer {
             background-color: #343a40;
-            padding: 20px;
-            text-align: center;
             color: white;
-            width: 100%;
-            margin-top: auto;
+            text-align: center;
+            padding: 20px;
         }
 
         footer img {
@@ -59,146 +66,105 @@
             filter: brightness(0) invert(1);
         }
 
-        .btn-school {
-            font-size: 16px;
-            padding: 10px 20px;
-            margin: 10px;
-            background-color: #28a745;
-            color: white;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-school:hover {
-            background-color: #218838;
-        }
-
-        .intro-container {
-            margin-top: 50px;
-            text-align: center;
-        }
-
-        .intro-container h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .intro-container p {
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
-
-        .links-container {
+        /* Two-column layout styling */
+        .two-column-container {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            justify-content: space-between;
+            margin-top: 40px;
         }
 
-        .links-container a {
-            font-size: 18px;
-            text-decoration: none;
-            color: white;
-            background-color: #28a745;
-            padding: 10px 20px;
-            border-radius: 5px;
-            width: 100%; /* Make buttons full width on mobile */
-            text-align: center;
+        .two-column-container .column {
+            width: 48%;
         }
 
-        .links-container a:hover {
-            background-color: #218838;
-        }
-
-        .row {
-            width: 100%;
-        }
-
-        .left-column {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
-
-        .right-column {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .logo-image {
+        /* Adjusting image column styling */
+        .two-column-container .column img {
             max-width: 100%;
             height: auto;
+            display: block;
+            border-radius: 10px;
         }
 
+        /* Responsive design for small screens */
         @media (max-width: 768px) {
-            /* Stack the logo and text on mobile */
-            .left-column, .right-column {
-                flex: 1;
+            .two-column-container {
+                flex-direction: column;
+            }
+
+            .two-column-container .column {
+                width: 100%;
                 margin-bottom: 20px;
             }
-
-            .intro-container h2 {
-                font-size: 20px;
-            }
-
-            .intro-container p {
-                font-size: 16px;
-            }
-
-            .links-container a {
-                font-size: 16px;
-                padding: 8px 16px;
-                width: 100%; /* Ensure buttons take full width on small screens */
-            }
-
-            /* Ensure footer doesn't overlap content */
-            footer {
-                position: relative;
-                margin-top: auto;
-            }
         }
+
+        .intro-container h2, .intro-container p {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <div class="container d-flex justify-content-between align-items-center p-0">
-                <img src="images/logo.png" alt="Logo">
-                <h1>مسار دراستك</h1>
-            </div>
-        </header>
+   <!-- Navbar with Logo -->
+   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #8ebb8e;">
+    <a class="navbar-brand" href="page_home.html">
+        <div class="logo-header">
+            <img id="logo" src="images/logo_one-removebg-preview.png" alt="Logo" style="height: 70px;">
+        </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="page_home.html">الرئيسية </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="test.html">اختبار توجيه</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="tree.html">شجرة</a>
+            </li>
+           
+        </ul>
+    </div>
+</nav>
 
-        <!-- Main content section with two columns -->
-        <div class="row mt-5">
-            <!-- Left column for the large logo -->
-            <div class="col-lg-6 left-column">
-                <img src="images/logo.png" alt="Logo" class="logo-image">
-            </div>
+    <!-- Title -->
+    
 
-            <!-- Right column for text and buttons -->
-            <div class="col-lg-6 right-column">
-                <div class="intro-container">
-                    <h2>مرحبًا بك في موقع ابريد توجيه!</h2>
-                    <p>موقعنا يساعدك في تحديد المسار الدراسي الأمثل لك بناءً على اهتماماتك. اختر من بين الخيارات التالية لتبدأ:</p>
+    <!-- Intro Section -->
+    <div class="container text-center mb-5">
+       
+    </div>
 
-                    <div class="links-container">
-                        <a href="tree.html" class="btn-school btn-lg mt-4">شجرة التوجيه الدراسي</a>
-                        <a href="test.html" class="btn-school btn-lg mt-4">اختبار التوجيه الدراسي</a>
-                    </div>
-                </div>
+    <!-- Two Columns Layout -->
+    <div class="container two-column-container">
+        <!-- Image Column -->
+        <div class="column">
+            <img src="images/logo_abrid-removebg-preview.png" alt="Logo" class="img-fluid">
+        </div>
+
+        <!-- Links Column -->
+        <div class="column">
+            <div class="d-flex flex-column gap-3">
+                <h1 class="rubik-title">مرحبًا بكم في مسار دراستك</h1>
+                <!-- Subtitle with additional description -->
+            
+                <p style="font-family: 'IBM Plex Sans Arabic', sans-serif;">من خلال هذه الصفحة، ستتمكن من استكشاف العديد من الخيارات الأكاديمية المتاحة لك بناءً على اهتماماتك وقدراتك. سواء كنت تبحث عن دراسة تخصص معين أو ترغب في التوجه إلى مسار مختلف، نحن هنا لمساعدتك في اتخاذ القرار الأنسب لمستقبلك.</p>
+                <p style="font-family: 'IBM Plex Sans Arabic', sans-serif;">انطلق الآن وابدأ رحلتك الأكاديمية بثقة! سيمكنك هذا الموقع من تحديد مسار دراستك الذي يتناسب مع قدراتك الشخصية والمهنية. نحن هنا لدعمك في كل خطوة على الطريق.</p>
+                <p style="font-family: 'IBM Plex Sans Arabic', sans-serif;">نحن نقدم لك مجموعة من الأدوات المساعدة مثل اختبار التوجيه وشجرة التوجيه لمساعدتك في اتخاذ القرار الأنسب. انطلق في مسيرتك الأكاديمية بثقة وابدأ في اختيار المسار الذي يتناسب مع طموحاتك الأكاديمية والمهنية!</p>
+
+                <a href="test.html" class="btn-school">اختبار التوجيه</a>
+                <a href="tree.html" class="btn-school">شجرة التوجيه </a>
             </div>
         </div>
     </div>
 
-    <footer>
-        <p>جميع الحقوق محفوظة &copy; 2024</p>
-        <img src="images/footer-logo.png" alt="Footer Logo">
-    </footer>
-
+    
+    <!-- Bootstrap JS (optional, for further interactivity if needed) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
