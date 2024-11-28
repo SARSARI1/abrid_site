@@ -138,26 +138,107 @@
         const answers = sessionStorage.getItem("answers");
         console.log("Answers received:", answers); // Debugging
 
-        let resultText;
-
         // Match answers to a result
-        switch (answers) {
-            case "1a2a3a":
-                resultText = "مهندس";
-                break;
-            case "1a2b3a":
-                resultText = "عالم";
-                break;
-            case "1b2b3a":
-                resultText = "طبيب";
-                break;
-            case "1b2b3b":
-                resultText = "معلم";
-                break;
-            default:
-                resultText = "لم يتم تحديد نتيجة واضحة. حاول مرة أخرى.";
-        }
-
+switch (answers) {
+    case "1a2a3a4a5a":
+        resultText = "مهندس برمجيات متخصص في الأمن السيبراني (Cybersecurity Software Engineer)";
+        break;
+    case "1a2a3a4a5b":
+        resultText = "مطور ويب (Web Developer)";
+        break;
+    case "1a2a3a4b5a":
+        resultText = "محلل بيانات في المجال الصحي (Healthcare Data Analyst)";
+        break;
+    case "1a2a3a4b5b":
+        resultText = "مطور تطبيقات في المجال الصحي (Healthcare Application Developer)";
+        break;
+    case "1a2a3b4a5a":
+        resultText = "محلل بيانات (Data Analyst)";
+        break;
+    case "1a2a3b4a5b":
+        resultText = "أخصائي تصور البيانات (Data Visualization Specialist)";
+        break;
+    case "1a2a3b4b5a":
+        resultText = "عالم بيانات متخصص في الأمن السيبراني (Cybersecurity Data Scientist)";
+        break;
+    case "1a2a3b4b5b":
+        resultText = "مطور واجهات المستخدم (Front-End Developer)";
+        break;
+    case "1a2b3a4a5a":
+        resultText = "مهندس برمجيات (Software Engineer)";
+        break;
+    case "1a2b3a4a5b":
+        resultText = "مصمم مواقع ويب (Web Designer)";
+        break;
+    case "1a2b3a4b5a":
+        resultText = "أخصائي تكنولوجيا المعلومات في الرعاية الصحية (Health IT Specialist)";
+        break;
+    case "1a2b3a4b5b":
+        resultText = "أخصائي دعم تكنولوجيا المعلومات (IT Support Specialist)";
+        break;
+    case "1a2b3b4a5a":
+        resultText = "أخصائي أمن سيبراني (Cybersecurity Specialist)";
+        break;
+    case "1a2b3b4a5b":
+        resultText = "مطور تقني مبدع (Creative Technologist)";
+        break;
+    case "1a2b3b4b5a":
+        resultText = "مهندس حماية البيانات (Data Protection Engineer)";
+        break;
+    case "1a2b3b4b5b":
+        resultText = "مطور واجهات المستخدم (Front-End Developer)";
+        break;
+    case "1b2a3a4a5a":
+        resultText = "عالم بيانات (Data Scientist)";
+        break;
+    case "1b2a3a4a5b":
+        resultText = "مطور ويب (Web Developer)";
+        break;
+    case "1b2a3a4b5a":
+        resultText = "محلل أبحاث طبية (Medical Research Analyst)";
+        break;
+    case "1b2a3a4b5b":
+        resultText = "مطور البرمجيات الطبية (Medical Software Developer)";
+        break;
+    case "1b2a3b4a5a":
+        resultText = "محلل بيانات (Data Analyst)";
+        break;
+    case "1b2a3b4a5b":
+        resultText = "محلل بيانات مبدع (Creative Data Analyst)";
+        break;
+    case "1b2a3b4b5a":
+        resultText = "استشاري أمن سيبراني (Cybersecurity Consultant)";
+        break;
+    case "1b2a3b4b5b":
+        resultText = "مصمم جرافيك (Graphic Designer)";
+        break;
+    case "1b2b3a4a5a":
+        resultText = "محلل بيانات في المجال الصحي (Healthcare Data Analyst)";
+        break;
+    case "1b2b3a4a5b":
+        resultText = "أخصائي تكنولوجيا المعلومات في الرعاية الصحية (Health Information Technology Specialist)";
+        break;
+    case "1b2b3a4b5a":
+        resultText = "أخصائي أمن البيانات (Data Security Specialist)";
+        break;
+    case "1b2b3a4b5b":
+        resultText = "مطور تطبيقات طبية (Medical App Developer)";
+        break;
+    case "1b2b3b4a5a":
+        resultText = "مهندس أمان تكنولوجيا المعلومات (IT Security Engineer)";
+        break;
+    case "1b2b3b4a5b":
+        resultText = "مصمم نظم تكنولوجيا المعلومات (IT System Designer)";
+        break;
+    case "1b2b3b4b5a":
+        resultText = "أخصائي حماية البيانات (Data Protection Specialist)";
+        break;
+    case "1b2b3b4b5b":
+        resultText = "مطور ويب (Web Designer)";
+        break;
+    default:
+        resultText = "لم يتم تحديد نتيجة واضحة. حاول مرة أخرى.";
+}
         document.getElementById("result").textContent = `مجالك المناسب هو: ${resultText}`;
     </script>
      <!-- Bootstrap JS, Popper.js, and jQuery -->

@@ -191,18 +191,57 @@
     </div>
 
     <script>
+
         const botIcon = 'images/bot-icon.png'; 
         const userIcon = 'images/user-icon.png'; 
 
         const questions = [
-            { id: 1, text: "هل تستمتع بالعمل مع الأرقام وحل المعادلات؟", options: { a: "نعم", b: "لا" } },
-            { id: 2, text: "هل تحب بناء أو تصميم الآلات والهياكل؟", options: { a: "نعم", b: "لا" } },
-            { id: 3, text: "هل لديك شغف بمساعدة الناس على تحسين صحتهم؟", options: { a: "نعم", b: "لا" } },
-        ];
+    { 
+        id: 1, 
+        text: "هل تستمتع بتحليل البيانات الكبيرة وفهم الأنماط؟", 
+        options: { 
+            a: "نعم", 
+            b: "لا" 
+        } 
+    },
+    { 
+        id: 2, 
+        text: "هل تستمتع ببناء وتصميم التطبيقات أو مواقع الويب؟", 
+        options: { 
+            a: "نعم", 
+            b: "لا" 
+        } 
+    },
+    { 
+        id: 3, 
+        text: "هل تحب العمل في مجال الصحة مثل التمريض أو الطب؟", 
+        options: { 
+            a: "نعم", 
+            b: "لا" 
+        } 
+    },
+    { 
+        id: 4, 
+        text: "هل لديك شغف بالإبداع، مثل التصميم الجرافيكي أو إنتاج الفيديو؟", 
+        options: { 
+            a: "نعم", 
+            b: "لا" 
+        } 
+    },
+    { 
+        id: 5, 
+        text: "هل تحب البرمجة مع التركيز على الأمن السيبراني وحماية البيانات؟", 
+        options: { 
+            a: "نعم", 
+            b: "لا" 
+        } 
+    }
+     ];
 
         let currentQuestion = 0;
         const chatContainer = document.getElementById("chat-container");
         const resultBtn = document.getElementById("result-btn");
+
         // Clear session data when the test starts
          sessionStorage.clear();
 
