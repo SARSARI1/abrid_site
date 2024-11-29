@@ -318,7 +318,25 @@ li,ul{
         `;
         break;
             default:
-                studyPath = "<p>لم يتم تحديد نتيجة واضحة. حاول مرة أخرى.</p>";
+             studyPath = `
+    <div>
+        <h3 class="mb-4">إذا كنت ترغب في تحقيق هدفك:</h3>
+        <ul class="list-group mb-4">
+            <li class="list-group-item">الاهتمام بدراستك وتطوير مهاراتك الأساسية.</li>
+            <li class="list-group-item">البحث عن التخصص المناسب لك واختيار مسارك بعناية.</li>
+            <li class="list-group-item">المشاركة في الأنشطة الأكاديمية أو التطوعية لتعزيز تجربتك.</li>
+            <li class="list-group-item">تطبيق ما تتعلمه من خلال المشاريع أو التدريبات العملية.</li>
+            <li class="list-group-item">التعلم المستمر واكتساب معارف جديدة لتحسين فرصك.</li>
+        </ul>
+        <h4 class="mb-3">أماكن يمكنك الدراسة فيها:</h4>
+        <div class="btn-group-vertical">
+            <a href="https://www.um5.ac.ma" class="btn btn-warning mb-2" target="_blank">جامعة محمد الخامس</a>
+            <a href="https://www.uh2c.ac.ma" class="btn btn-warning mb-2" target="_blank">جامعة الحسن الثاني</a>
+            <a href="https://www.ucam.ac.ma" class="btn btn-warning mb-2" target="_blank">جامعة القاضي عياض</a>
+            <a href="https://www.uae.ac.ma" class="btn btn-warning mb-2" target="_blank">جامعة ابن زهر</a>
+        </div>
+    </div> `;
+
         }
 
         // Inject the study path content into the div
